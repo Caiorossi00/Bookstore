@@ -29,4 +29,4 @@ Implementações Futuras:
   <li>Ligação com a API do Whatsapp, proporcionando um contato direto com o vendedor</li>
 </ul>
 
-Link: <a href="https://caiorossi00.github.io/Bookstore/">Songs</a>
+Link: <a href="https://caiorossi00.github.io/Bookstore/">Bookstore</a>
