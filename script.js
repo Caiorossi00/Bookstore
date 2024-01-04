@@ -31,6 +31,22 @@ const itens = [
     disponivel: "Sim",
     categoria: "Hq",
   },
+  {
+    nome: "Tomie - Deluxe",
+    foto: "https://m.media-amazon.com/images/I/51TaqenuZrL._SY445_SX342_.jpg",
+    preco: "129",
+    autor: "Junji Ito",
+    disponivel: "Sim",
+    categoria: "Hq",
+  },
+  {
+    nome: "Uzumaki - Deluxe",
+    foto: "https://m.media-amazon.com/images/I/81Zi7WmQutL._SY466_.jpg",
+    preco: "379",
+    autor: "Junji Ito",
+    disponivel: "Sim",
+    categoria: "Hq",
+  },
 
   {
     nome: "Calafrios",
@@ -89,10 +105,50 @@ const itens = [
     categoria: "Ficção",
   },
   {
+    nome: "Edgar Allan Poe - Medo Clássico",
+    foto: "https://m.media-amazon.com/images/I/51Wrq2i7EOL._SY445_SX342_.jpg",
+    preco: "PRECO",
+    autor: "Edgar Allan Poe",
+    disponivel: "Sim",
+    categoria: "Ficção",
+  },
+  {
     nome: "Memórias do Subsolo",
     foto: "https://m.media-amazon.com/images/I/81B8n0OCzTL._SY466_.jpg",
     preco: "28",
     autor: "Fiódor Dostoiévski",
+    disponivel: "Sim",
+    categoria: "Ficção",
+  },
+  {
+    nome: "Contos Reunidos - Dostoievski",
+    foto: "https://m.media-amazon.com/images/I/91sPoUG8WaL._SY466_.jpg",
+    preco: "33",
+    autor: "Fiódor Dostoiévski",
+    disponivel: "Sim",
+    categoria: "Ficção",
+  },
+  {
+    nome: "O Idiota",
+    foto: "https://m.media-amazon.com/images/I/81yztS6pgeL._SY466_.jpg",
+    preco: "62",
+    autor: "Fiódor Dostoiévski",
+    disponivel: "Sim",
+    categoria: "Ficção",
+  },
+  {
+    nome: "Crime e Castigo",
+    foto: "https://m.media-amazon.com/images/I/916WkSH4cGL._SY466_.jpg",
+    preco: "68",
+    autor: "Fiódor Dostoiévski",
+    disponivel: "Sim",
+    categoria: "Ficção",
+  },
+  {
+    nome: "A revolução dos bichos",
+    foto: "https://m.media-amazon.com/images/I/61owA5ey3iL._SY445_SX342_.jpg",
+    preco: "13",
+    autor: "George Orwell",
     disponivel: "Sim",
     categoria: "Ficção",
   },
@@ -106,16 +162,16 @@ const itens = [
   },
 ];
 
-let currentIndex = 0;
 let totalCarrinho = 0;
 
-function displayItens() {
-  let vitrine = document.querySelector(".vitrine");
+function displayItensInSwiper() {
+  let swiperWrapper = document.querySelector(".swiper-wrapper");
 
-  vitrine.innerHTML = "";
-
-  for (let i = currentIndex; i < currentIndex + 4 && i < itens.length; i++) {
+  for (let i = 0; i < itens.length; i++) {
     const item = itens[i];
+
+    const swiperSlide = document.createElement("div");
+    swiperSlide.classList.add("swiper-slide");
 
     const divProduto = document.createElement("div");
     divProduto.classList.add("produto");
@@ -132,36 +188,41 @@ function displayItens() {
     imgProduto.classList.add("foto-produto");
     divProduto.appendChild(imgProduto);
 
-    divProduto.innerHTML += `
-          <h3>${item.nome}</h3>
-          <p>${item.autor}</p>
-          <p>R$${item.preco},00</p>
-        `;
+    const titleElement = document.createElement("h3");
+    titleElement.textContent = item.nome;
+    divProduto.appendChild(titleElement);
+
+    const authorElement = document.createElement("p");
+    authorElement.textContent = item.autor;
+    divProduto.appendChild(authorElement);
+
+    const priceElement = document.createElement("p");
+    priceElement.textContent = `R$${item.preco},00`;
+    divProduto.appendChild(priceElement);
 
     const addToCartButton = document.createElement("button");
     addToCartButton.textContent = "Adicionar ao Carrinho";
     addToCartButton.addEventListener("click", () => addToCart(item));
     addToCartButton.classList.add("addBtn");
-
     divProduto.appendChild(addToCartButton);
 
-    vitrine.appendChild(divProduto);
+    swiperSlide.appendChild(divProduto);
+    swiperWrapper.appendChild(swiperSlide);
   }
 }
 
-function nextSlide() {
-  if (currentIndex + 4 < itens.length) {
-    currentIndex += 4;
-    displayItens();
-  }
-}
-
-function prevSlide() {
-  if (currentIndex - 4 >= 0) {
-    currentIndex -= 4;
-    displayItens();
-  }
-}
+const swiper = new Swiper(".swiper", {
+  direction: "horizontal",
+  slidesPerView: 4,
+  slidesPerGroup: 4,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 function addToCart(item) {
   totalCarrinho += parseFloat(item.preco);
@@ -174,4 +235,6 @@ function updateCartTotal() {
     totalCarrinho.toFixed(2);
 }
 
-window.onload = displayItens;
+window.onload = () => {
+  displayItensInSwiper();
+};

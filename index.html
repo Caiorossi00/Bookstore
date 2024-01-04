@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
       rel="icon"
       href="https://cdn-icons-png.flaticon.com/512/625/625154.png"
       type="image/png"
@@ -12,19 +16,15 @@
     <title>Catálogo</title>
   </head>
   <body>
-    <div class="container">
-      <div class="carrinho" style="margin-bottom: 2em">
-        <h2>Carrinho</h2>
-        <p>Total: R$<span id="totalCarrinho">0</span></p>
-      </div>
+    <div class="swiper">
+      <div class="swiper-wrapper"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="carrinho">
+      <p>Total: R$<span id="totalCarrinho">0</span></p>
     </div>
 
-    <div class="vitrine"></div>
-    <div class="buttons">
-      <button onclick="prevSlide()">Anterior</button>
-      <button onclick="nextSlide()">Próximo</button>
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
