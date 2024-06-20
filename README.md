@@ -30,8 +30,10 @@ Implementações Futuras:
 </ul>
 <br/>
 
+Link: <a href="https://caiorossi00.github.io/Bookstore/">Bookstore</a><br/>
+
+
 <h1>Importante!</h1>
 <h2>Muito do que foi praticado neste projeto foi utilizado num projeto maior subsequente chamado Bookbay, você pode acessar o link do projeto mais avançado <a href="https://bookbayy.netlify.app">aqui</a> e o seu repositório correspondente <a href="https://github.com/Caiorossi00/BookBay">aqui</a></h2>
-<br/>
 
-Link: <a href="https://caiorossi00.github.io/Bookstore/">Bookstore</a>
+
