@@ -29,4 +29,7 @@ Implementações Futuras:
   <li>Ligação com a API do Whatsapp, proporcionando um contato direto com o vendedor</li>
 </ul>
 
+<h1>Importante!</h1>
+<h2>Muito do que foi praticado neste projeto foi utilizado num projeto maior subsequente chamado Bookbay, você pode acessar o link do projeto mais avançado <a href="https://bookbayy.netlify.app">aqui</a> e o seu repositório correspondente <a href="https://github.com/Caiorossi00/BookBay">aqui</a></h2>
+
 Link: <a href="https://caiorossi00.github.io/Bookstore/">Bookstore</a>
